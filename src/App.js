@@ -64,6 +64,7 @@ const TodoApp = () => {
           <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
             <span onClick={() => toggleCompletion(task.id)}>{task.text}</span>
             <button onClick={() => deleteTask(task.id)}>Delete</button>
+            
           </li>
         ))}
       </ul>
