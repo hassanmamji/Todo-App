@@ -4,7 +4,6 @@ const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState("");
 
-  // Load tasks from localStorage when the component mounts
   useEffect(() => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks"));
     if (savedTasks) {
@@ -12,7 +11,6 @@ const TodoApp = () => {
     }
   }, []);
 
-  // Update localStorage whenever tasks change
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -29,7 +27,7 @@ const TodoApp = () => {
         completed: false
       };
       setTasks([...tasks, newTask]);
-      setTaskInput(""); // Clear the input field
+      setTaskInput(""); 
     }
   };
 
@@ -49,7 +47,6 @@ const TodoApp = () => {
     <div className="todo-app">
       <h1>TODO App</h1>
 
-      {/* Input field to add new tasks */}
       <input
         type="text"
         value={taskInput}
@@ -58,7 +55,6 @@ const TodoApp = () => {
       />
       <button onClick={addTask}>Add Task</button>
 
-      {/* Display tasks */}
       <ul>
         {tasks.map((task) => (
           <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
@@ -73,31 +69,3 @@ const TodoApp = () => {
 };
 
 export default TodoApp;
-
-
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
